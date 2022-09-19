@@ -162,11 +162,11 @@ def read_message(service, message):
     parts = payload.get("parts")
     folder_name = "email"
     has_subject = False
-    # if headers:
+    if headers:
     #     # this section prints email basic info & creates a folder for the email
-    #     for header in headers:
-    #         name = header.get("name")
-    #         value = header.get("value")
+        for header in headers:
+            name = header.get("name")
+            value = header.get("value")
     #         if name.lower() == 'from':
     #             # we print the From address
     #             print("From:", value)
@@ -191,15 +191,16 @@ def read_message(service, message):
                 #         folder_name = f"{folder_name}_{folder_counter}"
                 # os.mkdir(folder_name)
             #     print("Subject:", value)
-            # if name.lower() == "date":
-            #     # we print the date when the message was sent
-            #     print("Date:", value)
-            #     #Converting string into dateimr
-            #     date = value[5:16].replace(",", "")
-            #     date = datetime.strptime(date.replace(" ", "-"), '%d-%b-%Y')
-            #     print(date)
-            #     final_date = datetime.strftime(date, "%m/%d/%Y")
-            #     print (final_date)
+            if name.lower() == "date":
+        # we print the date when the message was sent
+                print("Date:", value)
+                try:
+                    date_time = re.search('.+?(?= \W)', value).group(0)
+                except AttributeError:
+                    date_time = ''
+                date_object = datetime.strptime(str(date_time), "%a, %d %b %Y %H:%M:%S")
+                print(date_object)
+
     if not has_subject:
         # if the email does not have a subject, then make a folder with "email" name
         # since folders are created based on subjects
