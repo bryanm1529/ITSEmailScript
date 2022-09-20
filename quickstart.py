@@ -89,6 +89,8 @@ def parse_parts(service, parts, folder_name, message):
     """
     Utility function that parses the content of an email partition
     """
+    
+    global final_banner_releases
     if parts:
         for part in parts:
             filename = part.get("filename")
@@ -109,7 +111,7 @@ def parse_parts(service, parts, folder_name, message):
                     # print(text)
                     if re.findall(regex,text,re.DOTALL):
                         banner_releases = re.findall(regex,text,re.DOTALL)
-                        
+                        final_banner_releases = banner_releases
                     else:
                         print("NO MATCHES FOUND")
 
@@ -192,6 +194,7 @@ def read_message(service, message):
                 # os.mkdir(folder_name)
             #     print("Subject:", value)
             if name.lower() == "date":
+                global final_date
         # we print the date when the message was sent
                 print("Date:", value)
                 try:
@@ -199,7 +202,9 @@ def read_message(service, message):
                 except AttributeError:
                     date_time = ''
                 date_object = datetime.strptime(str(date_time), "%a, %d %b %Y %H:%M:%S")
-                print(date_object)
+                formatted_date = date_object.strftime("%d/%m/%Y")
+                final_date = formatted_date
+
 
     if not has_subject:
         # if the email does not have a subject, then make a folder with "email" name
