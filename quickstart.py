@@ -24,7 +24,7 @@ import re
 
 # Request all access (permission to read/send/receive emails, manage the inbox, and more)
 SCOPES = ["https://mail.google.com/"]
-our_email = "bmartin7@ramapo.edu"
+our_email = "jdelossa@ramapo.edu"
 
 # We are reading the credentials.json and saving it to token.pickle file after authenticating with Google in your browser, we save the token so the second time we run the code we shouldn't authenticate again
 def gmail_authenticate():
