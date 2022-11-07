@@ -11,7 +11,7 @@ from openpyxl.styles import Alignment
 
 """Reading excel file using openpyxl"""
 # load excel file
-workbook = load_workbook(filename="/Users/bryan/copyBannerTest2.xlsx")
+workbook = load_workbook(filename="\ITS\Projects\Banner\Upgrades_Releases")
 workbook.active = workbook["Ellucian"]
 # ws
 sheet = workbook.active
@@ -215,4 +215,4 @@ update_sheet(quickstart.final_banner_releases, sheet)
 #         else:
 #             #call function to get last row
 # save the file
-workbook.save(filename="/Users/bryan/copyBannerTest2.xlsx")
+workbook.save(filename="\ITS\Projects\Banner\Upgrades_Releases.xlsx")
