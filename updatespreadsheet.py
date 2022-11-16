@@ -202,26 +202,3 @@ def main():
 if __name__ == '__main__':
     main()
 
-
-
-# modify the desired cell
-# sheet["A1"] = "Full Name"
-
-
-# Enumerate the cells in the  row we want to update to then color them if the banner is ramappo related
-# for cell in ws["2:2"]:
-#     cell.style = 'red_italic'
-
-# trying to iterate over banner releases column values
-# for row in sheet.iter_rows(min_row=1, max_col=1, max_row=167, values_only=True):
-#     for release in banner_releases:
-#         #Want to update sheet if release is in row identically
-#         if release == row:
-
-#         #want to regex for release without version number
-#         # elif release == revised_release:
-
-#         #Update sheet with new releases if they are not there at all
-#         else:
-#             #call function to get last row
-# save the file
