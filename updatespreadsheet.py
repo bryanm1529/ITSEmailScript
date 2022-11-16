@@ -9,13 +9,6 @@ from string import digits
 from openpyxl.styles import Alignment
 
 
-"""Reading excel file using openpyxl"""
-# load excel file
-workbook = load_workbook(filename="/ITS/Projects/Banner/Upgrades_Releases")
-workbook.active = workbook["Ellucian"]
-# ws
-sheet = workbook.active
-
 # Colors declarations
 my_red = openpyxl.styles.colors.Color(rgb="00FF0000")
 red_fill = openpyxl.styles.fills.PatternFill(patternType="solid", fgColor=my_red)
@@ -191,7 +184,21 @@ release_test = [
         "https://ellucian.force.com/clients/s/releases/a111M00000RP3OY/ba-hr-8192",
     ),
 ]
-update_sheet(quickstart.final_banner_releases, sheet)
+
+def main():
+
+    """Reading excel file using openpyxl"""
+    # load excel file
+    workbook = load_workbook(filename="/ITS/Projects/Banner/Upgrades_Releases")
+    workbook.active = workbook["Ellucian"]
+    # ws
+    sheet = workbook.active
+
+    update_sheet(quickstart.final_banner_releases, sheet)
+
+if __name__ == '__main__':
+    main()
+
 
 
 # modify the desired cell
