@@ -196,6 +196,9 @@ def main():
 
     update_sheet(quickstart.final_banner_releases, sheet)
 
+    workbook.save(filename="/ITS/Projects/Banner/Upgrades_Releases.xlsx")
+
+
 if __name__ == '__main__':
     main()
 
@@ -222,4 +225,3 @@ if __name__ == '__main__':
 #         else:
 #             #call function to get last row
 # save the file
-workbook.save(filename="/ITS/Projects/Banner/Upgrades_Releases.xlsx")
